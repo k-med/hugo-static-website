@@ -1,19 +1,47 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on KDOS</title>
+    <title>Writing on KDOS</title>
     <link>http://localhost:1313/posts/</link>
-    <description>Recent content in Posts on KDOS</description>
+    <description>Recent content in Writing on KDOS</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 22 Oct 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 22 Oct 2025 19:19:48 +1100</lastBuildDate>
     <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hyprland Install Guide</title>
+      <link>http://localhost:1313/posts/linux/hyprland-install-guide/</link>
+      <pubDate>Wed, 22 Oct 2025 19:19:48 +1100</pubDate>
+      <guid>http://localhost:1313/posts/linux/hyprland-install-guide/</guid>
+      <description>—</description>
+    </item>
+    <item>
+      <title>Post Title</title>
+      <link>http://localhost:1313/posts/meta/post-title/</link>
+      <pubDate>Wed, 22 Oct 2025 13:17:58 +1100</pubDate>
+      <guid>http://localhost:1313/posts/meta/post-title/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Getting Started with My Blog</title>
+      <link>http://localhost:1313/posts/meta/getting-started/</link>
+      <pubDate>Wed, 22 Oct 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/meta/getting-started/</guid>
+      <description>First post on my new Hugo-powered blog</description>
+    </item>
     <item>
       <title>My First Post</title>
       <link>http://localhost:1313/posts/my-first-post/</link>
       <pubDate>Wed, 22 Oct 2025 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/posts/my-first-post/</guid>
       <description>&lt;h1 id=&#34;welcome&#34;&gt;Welcome!&lt;/h1&gt;&#xA;&lt;p&gt;This is my first blog post using Hugo and PaperMod.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>The Collapse of Non-Monetary Value Systems in the Modern West</title>
+      <link>http://localhost:1313/posts/essays/the-collapse-of-non-monetary-value-systems/</link>
+      <pubDate>Wed, 22 Oct 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/essays/the-collapse-of-non-monetary-value-systems/</guid>
+      <description>Money was only a token of trust; when trust erodes, tokens lose meaning. The Stoics taught that wealth is indifferent, virtue essential. Rome collapsed not for lack of currency but for loss of civic virtue — citizens ceased to see the republic as an extension of themselves. The analogy is uncomfortably close. When Australians treat their country as a property portfolio rather than a common inheritance, they re-enact the same decline.</description>
     </item>
   </channel>
 </rss>
