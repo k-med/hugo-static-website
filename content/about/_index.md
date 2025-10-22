@@ -22,7 +22,7 @@ This site is a public notebook — organized thoughts on building systems that m
 
 ## Contact
 
-- GitHub: [@yourusername](https://github.com/yourusername)
+- GitHub: [@k-med](https://github.com/k-med)
 - RSS: [Subscribe](/index.xml)
 
 ## Colophon
