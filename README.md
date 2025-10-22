@@ -48,6 +48,13 @@ hugo new --kind civic-virtue-project posts/civic-virtue-blueprint.md
 hugo new --kind project projects/fence-rebuild.md
 ```
 
+**Note**: New content has `draft: true` by default. To preview:
+```bash
+hugo server -D  # Include drafts
+```
+
+To publish, change `draft: true` to `draft: false` in the post's frontmatter.
+
 ## 🚀 Development
 
 ```bash

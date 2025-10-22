@@ -6,8 +6,15 @@
     <description>Recent content on KDOS</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 22 Oct 2025 19:19:48 +1100</lastBuildDate>
+    <lastBuildDate>Wed, 22 Oct 2025 20:25:41 +1100</lastBuildDate>
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hyprland From Zero</title>
+      <link>http://localhost:1313/posts/linux/hyprland-from-zero/</link>
+      <pubDate>Wed, 22 Oct 2025 20:25:41 +1100</pubDate>
+      <guid>http://localhost:1313/posts/linux/hyprland-from-zero/</guid>
+      <description>A minimal, reproducible approach to building a modern Wayland desktop on Arch using one script and common sense.</description>
+    </item>
     <item>
       <title>Hyprland Install Guide</title>
       <link>http://localhost:1313/posts/linux/hyprland-install-guide/</link>

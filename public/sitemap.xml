@@ -29,10 +29,52 @@
     <loc>http://localhost:1313/series/letters-from-the-collapse/</loc>
     <lastmod>2025-10-22T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/backups/</loc>
-    <lastmod>2025-10-22T19:19:48+11:00</lastmod>
+    <loc>http://localhost:1313/tags/arch/</loc>
+    <lastmod>2025-10-22T20:25:41+11:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/automation/</loc>
+    <lastmod>2025-10-22T20:25:41+11:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/categories/</loc>
+    <lastmod>2025-10-22T20:25:41+11:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/linux/hyprland-from-zero/</loc>
+    <lastmod>2025-10-22T20:25:41+11:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/</loc>
+    <lastmod>2025-10-22T20:25:41+11:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/categories/linux/</loc>
+    <lastmod>2025-10-22T20:25:41+11:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/linux/</loc>
+    <lastmod>2025-10-22T20:25:41+11:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/categories/privacy/</loc>
+    <lastmod>2025-10-22T20:25:41+11:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/privacy/</loc>
+    <lastmod>2025-10-22T20:25:41+11:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/series/</loc>
+    <lastmod>2025-10-22T20:25:41+11:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/systems/</loc>
+    <lastmod>2025-10-22T20:25:41+11:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/</loc>
+    <lastmod>2025-10-22T20:25:41+11:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/series/the-linux-frontier/</loc>
+    <lastmod>2025-10-22T20:25:41+11:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/categories/tooling/</loc>
+    <lastmod>2025-10-22T20:25:41+11:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/</loc>
+    <lastmod>2025-10-22T20:25:41+11:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/backups/</loc>
     <lastmod>2025-10-22T19:19:48+11:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/grapheneos/</loc>
@@ -44,34 +86,10 @@
     <loc>http://localhost:1313/posts/linux/hyprland-install-guide/</loc>
     <lastmod>2025-10-22T19:19:48+11:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/</loc>
-    <lastmod>2025-10-22T19:19:48+11:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/categories/linux/</loc>
-    <lastmod>2025-10-22T19:19:48+11:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/categories/privacy/</loc>
-    <lastmod>2025-10-22T19:19:48+11:00</lastmod>
-  </url><url>
     <loc>http://localhost:1313/tags/rclone/</loc>
     <lastmod>2025-10-22T19:19:48+11:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/series/</loc>
-    <lastmod>2025-10-22T19:19:48+11:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/</loc>
-    <lastmod>2025-10-22T19:19:48+11:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/series/the-linux-frontier/</loc>
-    <lastmod>2025-10-22T19:19:48+11:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/categories/tooling/</loc>
-    <lastmod>2025-10-22T19:19:48+11:00</lastmod>
-  </url><url>
     <loc>http://localhost:1313/tags/wayland/</loc>
-    <lastmod>2025-10-22T19:19:48+11:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/posts/</loc>
     <lastmod>2025-10-22T19:19:48+11:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/projects/project-name/</loc>

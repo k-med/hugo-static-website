@@ -8,6 +8,8 @@ categories: ["Civilisation", "Philosophy", "Economics"]
 summary: "Money was only a token of trust; when trust erodes, tokens lose meaning. The Stoics taught that wealth is indifferent, virtue essential. Rome collapsed not for lack of currency but for loss of civic virtue — citizens ceased to see the republic as an extension of themselves. The analogy is uncomfortably close. When Australians treat their country as a property portfolio rather than a common inheritance, they re-enact the same decline."
 ---
 
+![Yellow Duck](/karlsbad.jpg)
+
 ## I. Introduction
 
 Across Australia and the wider West, one can feel a quiet but persistent impoverishment that is not measured in dollars. Wages rise, amenities expand, yet life feels strangely thinned. Friendship, neighborhood, and vocation — once dense with obligation and mutual aid — have been hollowed into transactions. What was once a moral economy of _trust, honour, and skill_ has become a monetary economy of _price, contract, and brand_. The loss is not merely sociological; it is spiritual. It marks the collapse of non-monetary value systems that sustained Western civilisation for millennia.
