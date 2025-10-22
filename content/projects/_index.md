@@ -5,8 +5,6 @@ url: "/projects/"
 summary: "Case studies and real-world builds"
 ---
 
-## Projects
-
 Documentation of actual things built, fixed, or improved — with outcomes, costs, and lessons learned.
 
 Not speculation or theory. These are reports from completed work:

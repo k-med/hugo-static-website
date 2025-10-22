@@ -3,8 +3,6 @@ title: "About"
 date: 2025-10-22
 ---
 
-# About KDOS
-
 This site is a public notebook — organized thoughts on building systems that matter and living examined lives under late-modern conditions.
 
 ## What You'll Find Here
