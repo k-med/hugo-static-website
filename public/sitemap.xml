@@ -2,8 +2,77 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>http://localhost:1313/series/modernity-cycle/</loc>
+    <lastmod>2025-10-22T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/series/linux-frontier/</loc>
+    <lastmod>2025-10-22T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/series/artisans-return/</loc>
+    <lastmod>2025-10-22T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/series/nomads-almanac/</loc>
+    <lastmod>2025-10-22T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/series/techne-papers/</loc>
+    <lastmod>2025-10-22T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/series/european_correspondence/</loc>
+    <lastmod>2025-10-22T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/series/civic-virtue-project/</loc>
+    <lastmod>2025-10-22T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/series/metaphysics-everyday/</loc>
+    <lastmod>2025-10-22T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/series/letters-from-the-collapse/</loc>
+    <lastmod>2025-10-22T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/backups/</loc>
+    <lastmod>2025-10-22T19:19:48+11:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/blog/</loc>
+    <lastmod>2025-10-22T19:19:48+11:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/categories/</loc>
+    <lastmod>2025-10-22T19:19:48+11:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/grapheneos/</loc>
+    <lastmod>2025-10-22T19:19:48+11:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/hyprland/</loc>
+    <lastmod>2025-10-22T19:19:48+11:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/blog/hyprland-install-guide/</loc>
+    <lastmod>2025-10-22T19:19:48+11:00</lastmod>
+  </url><url>
     <loc>http://localhost:1313/</loc>
-    <lastmod>2025-10-22T13:18:04+11:00</lastmod>
+    <lastmod>2025-10-22T19:19:48+11:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/categories/linux/</loc>
+    <lastmod>2025-10-22T19:19:48+11:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/categories/privacy/</loc>
+    <lastmod>2025-10-22T19:19:48+11:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/rclone/</loc>
+    <lastmod>2025-10-22T19:19:48+11:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/series/</loc>
+    <lastmod>2025-10-22T19:19:48+11:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/</loc>
+    <lastmod>2025-10-22T19:19:48+11:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/series/the-linux-frontier/</loc>
+    <lastmod>2025-10-22T19:19:48+11:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/categories/tooling/</loc>
+    <lastmod>2025-10-22T19:19:48+11:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/wayland/</loc>
+    <lastmod>2025-10-22T19:19:48+11:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/projects/project-name/</loc>
     <lastmod>2025-10-22T13:18:04+11:00</lastmod>
@@ -11,19 +80,25 @@
     <loc>http://localhost:1313/projects/</loc>
     <lastmod>2025-10-22T13:18:04+11:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/blog/</loc>
-    <lastmod>2025-10-22T13:17:58+11:00</lastmod>
-  </url><url>
     <loc>http://localhost:1313/blog/post-title/</loc>
     <lastmod>2025-10-22T13:17:58+11:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/about/</loc>
     <lastmod>2025-10-22T00:00:00+00:00</lastmod>
   </url><url>
+    <loc>http://localhost:1313/tags/australia/</loc>
+    <lastmod>2025-10-22T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>http://localhost:1313/tags/blogging/</loc>
     <lastmod>2025-10-22T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/</loc>
+    <loc>http://localhost:1313/tags/civic-virtue/</loc>
+    <lastmod>2025-10-22T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/categories/civilisation/</loc>
+    <lastmod>2025-10-22T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/categories/economics/</loc>
     <lastmod>2025-10-22T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/first/</loc>
@@ -38,13 +113,25 @@
     <loc>http://localhost:1313/tags/meta/</loc>
     <lastmod>2025-10-22T00:00:00+00:00</lastmod>
   </url><url>
+    <loc>http://localhost:1313/tags/moral-economy/</loc>
+    <lastmod>2025-10-22T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>http://localhost:1313/posts/my-first-post/</loc>
+    <lastmod>2025-10-22T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/categories/philosophy/</loc>
     <lastmod>2025-10-22T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/posts/</loc>
     <lastmod>2025-10-22T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/</loc>
+    <loc>http://localhost:1313/tags/reciprocity/</loc>
+    <lastmod>2025-10-22T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/stoicism/</loc>
+    <lastmod>2025-10-22T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/blog/the-collapse-of-non-monetary-value-systems/</loc>
     <lastmod>2025-10-22T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/categories/updates/</loc>
