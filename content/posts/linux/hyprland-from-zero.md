@@ -3,7 +3,7 @@ title: "Hyprland From Zero"
 subtitle: "—"
 description: "A Linux Frontier guide."
 date: 2025-10-22T20:25:41+11:00
-draft: true
+draft: false
 
 series: ["The Linux Frontier"]
 categories: ["Linux", "Privacy", "Tooling"]
