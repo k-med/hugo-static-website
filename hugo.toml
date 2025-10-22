@@ -1,0 +1,37 @@
+baseURL = 'http://localhost:1313/'
+languageCode = 'en-us'
+title = 'My Blog'
+theme = 'PaperMod'
+
+[params]
+  description = "My awesome blog"
+  author = "Your Name"
+  
+  ShowReadingTime = true
+  ShowShareButtons = true
+  ShowPostNavLinks = true
+  ShowBreadCrumbs = true
+  ShowCodeCopyButtons = true
+  ShowWordCount = true
+  
+  [params.homeInfoParams]
+    Title = "Welcome to My Blog"
+    Content = "This is my blog powered by Hugo and PaperMod"
+
+[[menus.main]]
+  name = "Posts"
+  url = "/posts/"
+  weight = 1
+
+[[menus.main]]
+  name = "Archive"
+  url = "/archives/"
+  weight = 2
+
+[[menus.main]]
+  name = "Search"
+  url = "/search/"
+  weight = 3
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
