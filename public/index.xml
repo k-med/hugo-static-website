@@ -1,20 +1,40 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>My Blog</title>
+    <title>KDOS</title>
     <link>http://localhost:1313/</link>
-    <description>Recent content on My Blog</description>
-    <generator>Hugo -- 0.151.2</generator>
+    <description>Recent content on KDOS</description>
+    <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 22 Oct 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 22 Oct 2025 13:18:04 +1100</lastBuildDate>
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Project Name</title>
+      <link>http://localhost:1313/projects/project-name/</link>
+      <pubDate>Wed, 22 Oct 2025 13:18:04 +1100</pubDate>
+      <guid>http://localhost:1313/projects/project-name/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Post Title</title>
+      <link>http://localhost:1313/blog/post-title/</link>
+      <pubDate>Wed, 22 Oct 2025 13:17:58 +1100</pubDate>
+      <guid>http://localhost:1313/blog/post-title/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Getting Started with My Blog</title>
+      <link>http://localhost:1313/blog/getting-started/</link>
+      <pubDate>Wed, 22 Oct 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/blog/getting-started/</guid>
+      <description>First post on my new Hugo-powered blog</description>
+    </item>
     <item>
       <title>My First Post</title>
       <link>http://localhost:1313/posts/my-first-post/</link>
       <pubDate>Wed, 22 Oct 2025 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/posts/my-first-post/</guid>
-      <description>&lt;h1 id=&#34;welcome&#34;&gt;Welcome!&lt;/h1&gt;
-&lt;p&gt;This is my first blog post using Hugo and PaperMod.&lt;/p&gt;</description>
+      <description>&lt;h1 id=&#34;welcome&#34;&gt;Welcome!&lt;/h1&gt;&#xA;&lt;p&gt;This is my first blog post using Hugo and PaperMod.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

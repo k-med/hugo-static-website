@@ -1,37 +1,83 @@
 baseURL = 'http://localhost:1313/'
 languageCode = 'en-us'
-title = 'My Blog'
+title = 'KDOS'
 theme = 'PaperMod'
 
+enableRobotsTXT = true
+buildDrafts = false
+buildFuture = false
+buildExpired = false
+enableEmoji = true
+
 [params]
-  description = "My awesome blog"
-  author = "Your Name"
+  env = "production"
+  description = "KDOS - My personal blog and projects"
+  author = "KDOS"
   
+  defaultTheme = "auto"
+  disableThemeToggle = false
   ShowReadingTime = true
   ShowShareButtons = true
   ShowPostNavLinks = true
   ShowBreadCrumbs = true
   ShowCodeCopyButtons = true
   ShowWordCount = true
-  
+  ShowRssButtonInSectionTermList = true
+  UseHugoToc = true
+  disableSpecial1stPost = false
+  disableScrollToTop = false
+  comments = false
+  hidemeta = false
+  hideSummary = false
+  showtoc = true
+  tocopen = false
+
   [params.homeInfoParams]
-    Title = "Welcome to My Blog"
-    Content = "This is my blog powered by Hugo and PaperMod"
+    Title = "Welcome to KDOS"
+    Content = "My thoughts on tech, coding, and whatever else interests me."
 
-[[menus.main]]
-  name = "Posts"
-  url = "/posts/"
-  weight = 1
+  [[params.socialIcons]]
+    name = "github"
+    url = "https://github.com/yourusername"
 
-[[menus.main]]
-  name = "Archive"
-  url = "/archives/"
-  weight = 2
+  [[params.socialIcons]]
+    name = "rss"
+    url = "/index.xml"
 
-[[menus.main]]
-  name = "Search"
-  url = "/search/"
-  weight = 3
+[menu]
+  [[menu.main]]
+    name = "Blog"
+    url = "/blog/"
+    weight = 1
+  
+  [[menu.main]]
+    name = "Projects"
+    url = "/projects/"
+    weight = 2
+  
+  [[menu.main]]
+    name = "About"
+    url = "/about/"
+    weight = 3
+  
+  [[menu.main]]
+    name = "Archive"
+    url = "/archives/"
+    weight = 4
+  
+  [[menu.main]]
+    name = "Search"
+    url = "/search/"
+    weight = 5
 
 [outputs]
   home = ["HTML", "RSS", "JSON"]
+
+[markup]
+  [markup.highlight]
+    anchorLineNos = false
+    codeFences = true
+    guessSyntax = true
+    lineNos = true
+    noClasses = false
+    style = "monokai"
