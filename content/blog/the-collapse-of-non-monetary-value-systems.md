@@ -1,5 +1,6 @@
 ---
 title: "The Collapse of Non-Monetary Value Systems in the Modern West"
+series: ["The Modernity Cycle"]
 date: 2025-10-22
 draft: false
 tags: ["Australia", "Reciprocity", "Civic Virtue", "Stoicism", "Moral Economy"]
