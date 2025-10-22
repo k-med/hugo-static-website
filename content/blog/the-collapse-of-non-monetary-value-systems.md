@@ -4,7 +4,7 @@ date: 2025-10-22
 draft: false
 tags: ["Australia", "Non-Monetary Value System", "Reciprocity"]
 categories: ["Economics"]
-summary: "Understanding the Modern World"
+summary: "Money was only a token of trust; when trust erodes, tokens lose meaning. The Stoics taught that wealth is indifferent, virtue essential. Rome collapsed not for lack of currency but for loss of civic virtue — citizens ceased to see the republic as an extension of themselves. The analogy is uncomfortably close. When Australians treat their country as a property portfolio rather than a common inheritance, they re-enact the same decline."
 ---
 
 # **The Collapse of Non-Monetary Value Systems in the Modern West**
