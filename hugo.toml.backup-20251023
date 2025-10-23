@@ -1,0 +1,116 @@
+baseURL = 'https://kdos.xyz/'
+languageCode = 'en-us'
+title = 'KDOS'
+theme = 'PaperMod'
+
+enableRobotsTXT = true
+buildDrafts = false
+buildFuture = false
+buildExpired = false
+enableEmoji = true
+paginate = 12
+
+[taxonomies]
+  category = "categories"
+  tag = "tags"
+  series = "series"
+
+[params]
+  env = "production"
+  description = "Field notes on craft, code, and the examined life"
+  author = "KDOS"
+  
+  defaultTheme = "auto"
+  disableThemeToggle = false
+  ShowReadingTime = true
+  ShowShareButtons = false
+  ShowPostNavLinks = true
+  ShowBreadCrumbs = true
+  ShowCodeCopyButtons = true
+  ShowWordCount = false
+  ShowRssButtonInSectionTermList = true
+  UseHugoToc = true
+  disableSpecial1stPost = false
+  disableScrollToTop = false
+  comments = false
+  hidemeta = false
+  hideSummary = false
+  showtoc = true
+  tocopen = false
+  
+  # Custom CSS if you added the file
+  # customCSS = ["css/custom.css"]
+  
+  [params.homeInfoParams]
+    Title = "KDOS"
+    Content = """
+Systems, philosophy, and craftsmanship for a post-industrial life.
+    
+**[Essays](/essays/)** on civilisation and meaning / **[Projects](/projects/)** built and documented /
+**[Guides](/guides/)** for sovereignty and skill / **[Notes](/notes/)** on the examined life
+    """
+
+  [[params.socialIcons]]
+    name = "github"
+    url = "https://github.com/k-med"
+
+  [[params.socialIcons]]
+    name = "rss"
+    url = "/index.xml"
+
+[menu]
+  [[menu.main]]
+    name = "Essays"
+    url = "/essays/"
+    weight = 1
+
+  [[menu.main]]
+    name = "Projects"
+    url = "/projects/"
+    weight = 2
+
+  [[menu.main]]
+    name = "Guides"
+    url = "/guides/"
+    weight = 3
+
+  [[menu.main]]
+    name = "Notes"
+    url = "/notes/"
+    weight = 4
+
+  [[menu.main]]
+    name = "About"
+    url = "/about/"
+    weight = 5
+
+[[menu.footer]]
+  name = "Series"
+  url = "/series/"
+  weight = 1
+
+[[menu.footer]]
+  name = "Archives"
+  url = "/archives/"
+  weight = 2
+
+[[menu.footer]]
+  name = "Search"
+  url = "/search/"
+  weight = 4
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+  section = ["HTML", "RSS"]
+
+[markup]
+  [markup.highlight]
+    anchorLineNos = false
+    codeFences = true
+    guessSyntax = true
+    lineNos = false
+    noClasses = false
+    style = "monokai"
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
