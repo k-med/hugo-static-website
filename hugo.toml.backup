@@ -8,26 +8,26 @@ buildDrafts = false
 buildFuture = false
 buildExpired = false
 enableEmoji = true
-paginate = 12
 
+# ✳️ Taxonomies (adds "series")
 [taxonomies]
   category = "categories"
-  tag = "tags"
-  series = "series"
+  tag      = "tags"
+  series   = "series"
 
 [params]
   env = "production"
   description = "Field notes on craft, code, and the examined life"
   author = "KDOS"
-  
+
   defaultTheme = "auto"
   disableThemeToggle = false
   ShowReadingTime = true
-  ShowShareButtons = false
+  ShowShareButtons = true
   ShowPostNavLinks = true
   ShowBreadCrumbs = true
   ShowCodeCopyButtons = true
-  ShowWordCount = false
+  ShowWordCount = true
   ShowRssButtonInSectionTermList = true
   UseHugoToc = true
   disableSpecial1stPost = false
@@ -37,80 +37,62 @@ paginate = 12
   hideSummary = false
   showtoc = true
   tocopen = false
-  
-  # Custom CSS if you added the file
-  # customCSS = ["css/custom.css"]
-  
+
   [params.homeInfoParams]
     Title = "KDOS"
     Content = """
-Systems, philosophy, and craftsmanship for a post-industrial life.
-    
-**[Essays](/essays/)** on civilisation and meaning / **[Projects](/projects/)** built and documented /
-**[Guides](/guides/)** for sovereignty and skill / **[Notes](/notes/)** on the examined life
+Field notes on building systems that matter — from Linux sovereignty to civic renewal, 
+from craft traditions to clear thinking. Reflections organized into series, projects grounded in practice.
     """
 
   [[params.socialIcons]]
     name = "github"
-    url = "https://github.com/k-med"
+    url = "https://github.com/yourusername"
 
   [[params.socialIcons]]
     name = "rss"
     url = "/index.xml"
 
+# 📋 Cleaner, more intentional menu
 [menu]
   [[menu.main]]
-    name = "Essays"
-    url = "/essays/"
+    name = "Writing"
+    url = "/posts/"
     weight = 1
+
+  [[menu.main]]
+    name = "Series"
+    url = "/series/"
+    weight = 2
 
   [[menu.main]]
     name = "Projects"
     url = "/projects/"
-    weight = 2
-
-  [[menu.main]]
-    name = "Guides"
-    url = "/guides/"
     weight = 3
-
-  [[menu.main]]
-    name = "Notes"
-    url = "/notes/"
-    weight = 4
 
   [[menu.main]]
     name = "About"
     url = "/about/"
+    weight = 4
+
+  [[menu.main]]
+    name = "Archives"
+    url = "/archives/"
     weight = 5
 
-[[menu.footer]]
-  name = "Series"
-  url = "/series/"
-  weight = 1
-
-[[menu.footer]]
-  name = "Archives"
-  url = "/archives/"
-  weight = 2
-
-[[menu.footer]]
-  name = "Search"
-  url = "/search/"
-  weight = 4
+  [[menu.main]]
+    name = "Search"
+    url = "/search/"
+    weight = 6
 
 [outputs]
   home = ["HTML", "RSS", "JSON"]
-  section = ["HTML", "RSS"]
 
 [markup]
   [markup.highlight]
     anchorLineNos = false
     codeFences = true
     guessSyntax = true
-    lineNos = false
+    lineNos = true
     noClasses = false
     style = "monokai"
-  [markup.goldmark]
-    [markup.goldmark.renderer]
-      unsafe = true
