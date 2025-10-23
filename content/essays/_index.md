@@ -1,7 +1,7 @@
 ---
-title: "Writing"
+title: "Essays"
 layout: "list"
-url: "/posts/"
+url: "/essays/"
 summary: "Essays, guides, and field notes"
 ---
 
