@@ -8,7 +8,10 @@ buildDrafts = false
 buildFuture = false
 buildExpired = false
 enableEmoji = true
-paginate = 12
+
+# Pagination configuration (Hugo 0.128.0+)
+[pagination]
+  pagerSize = 12
 
 [taxonomies]
   category = "categories"
