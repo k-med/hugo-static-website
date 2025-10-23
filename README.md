@@ -4,28 +4,30 @@ A practical guide to managing your Hugo-powered blog with PaperMod theme.
 
 ---
 
-## 📁 Site Structure
+## 📁 How Hugo Organizes Content
+
+**Critical Concept**: Hugo uses **directory location** to determine content type, not a `type:` field in frontmatter.
 
 ```
 content/
-├── essays/         # Long-form philosophical writing
-├── guides/         # Technical how-tos and tutorials
-├── notes/          # Short reflections and observations
-├── projects/       # Project case studies
-├── series/         # Series landing pages (9 thematic collections)
-│   ├── modernity-cycle/
-│   ├── linux-frontier/
-│   ├── artisans-return/
-│   ├── nomads-almanac/
-│   ├── techne-papers/
-│   ├── european_correspondence/
-│   ├── civic-virtue-project/
-│   ├── metaphysics-everyday/
-│   └── letters-from-the-collapse/
+├── essays/         # Files here become "essays" (section: essays)
+├── guides/         # Files here become "guides" (section: guides)
+├── notes/          # Files here become "notes" (section: notes)
+├── projects/       # Files here become "projects" (section: projects)
+├── posts/          # Legacy location (being migrated)
+│   ├── linux/      # Currently some guides live here
+│   ├── essays/     # Currently some essays live here
+│   └── meta/       # Currently some notes live here
+├── series/         # Series landing pages
 ├── about/          # About page
-├── archives/       # Auto-generated chronological archive
-└── search/         # Auto-generated search page
+├── archives/       # Auto-generated archive
+└── search/         # Auto-generated search
 ```
+
+**The URL structure follows the directory structure:**
+- `content/essays/my-essay.md` → `/essays/my-essay/`
+- `content/guides/hyprland.md` → `/guides/hyprland/`
+- `content/notes/thought.md` → `/notes/thought/`
 
 ---
 
@@ -33,30 +35,32 @@ content/
 
 ### Essays
 ```bash
-hugo new --kind essay essays/my-new-essay.md
+hugo new essays/my-new-essay.md
 ```
 
 ### Guides
 ```bash
-hugo new --kind guide guides/my-new-guide.md
+hugo new guides/my-new-guide.md
 ```
 
 ### Notes
 ```bash
-hugo new --kind note notes/my-quick-thought.md
+hugo new notes/my-quick-thought.md
 ```
 
 ### Projects
 ```bash
-hugo new --kind project projects/my-build-log.md
+hugo new projects/my-build-log.md
 ```
 
-### Plain Content (No Template)
+### Using Archetypes (Optional)
 ```bash
-hugo new essays/freestyle-post.md
+# Use a series-specific template
+hugo new --kind modernity-cycle essays/new-essay.md
+hugo new --kind linux-frontier guides/new-guide.md
 ```
 
-**All new content starts as `draft: true`**. Preview drafts with:
+**All new content starts as `draft: true`**. Preview drafts:
 ```bash
 hugo server -D
 ```
@@ -65,63 +69,126 @@ hugo server -D
 
 ## 📝 Understanding Frontmatter
 
-Every content file has YAML frontmatter at the top. Here's what each field does:
+Here's what actually matters in your frontmatter:
 
 ```yaml
 ---
 title: "Your Post Title"
+subtitle: "Optional subtitle"           # Used in some templates
+description: "SEO description"          # Used in meta tags
 date: 2025-10-22
-draft: false              # Set to false to publish
-type: "essay"             # Options: essay, guide, note, project
-series: ["The Modernity Cycle"]  # Add to a series (optional)
-categories: ["Philosophy", "Linux"]  # Broad groupings
-tags: ["Stoicism", "Arch", "Privacy"]  # Specific topics
-summary: "Brief description shown in lists"
-showToc: true            # Show table of contents
-tocopen: false           # Start with TOC collapsed
+draft: false                            # Set to false to publish
+
+series: ["The Modernity Cycle"]         # Links to series pages
+categories: ["Philosophy", "Linux"]     # Broad groupings
+tags: ["Stoicism", "Arch"]             # Specific topics
+
+summary: "Brief description"            # Shown in post lists
+showToc: true                          # Show table of contents
+tocopen: false                         # Start with TOC collapsed
+
+# Optional cover image
+# cover:
+#   image: "/images/my-cover.jpg"
+#   alt: "Alt text for accessibility"
+#   caption: "Caption shown below image"
 ---
+```
+
+### Cover Images Explained
+
+The `cover:` section adds a featured image to your post:
+
+```yaml
+cover:
+  image: "/images/series-linux-frontier.jpg"  # Path from static/ directory
+  alt: "Descriptive text for screen readers"
+  caption: "Text shown below the image"
+  relative: false  # Set true if image is in same folder as post
+```
+
+**How it works:**
+1. Place image in `static/images/` directory
+2. Reference it as `/images/filename.jpg` (Hugo strips "static")
+3. PaperMod theme displays it at the top of the post
+4. Alt text helps accessibility and SEO
+
+**Example file structure:**
+```
+static/
+└── images/
+    ├── series-linux-frontier.jpg
+    └── series-modernity-cycle.jpg
+
+content/
+└── essays/
+    └── my-essay.md  # References /images/series-modernity-cycle.jpg
 ```
 
 ---
 
 ## 🔄 Moving Content Between Sections
 
-### Example: Move an Essay to Guides
+### Example: Move a Post from Essays to Guides
 
-1. **Move the file:**
-   ```bash
-   mv content/essays/hyprland-setup.md content/guides/
-   ```
+The essay is currently at `content/essays/hyprland-setup.md`
 
-2. **Update the frontmatter:**
-   ```yaml
-   # Change this:
-   type: "essay"
-   
-   # To this:
-   type: "guide"
-   ```
+**Step 1: Move the file**
+```bash
+mv content/essays/hyprland-setup.md content/guides/
+```
 
-3. **Rebuild the site:**
-   ```bash
-   rm -rf public/ && hugo
-   ```
+That's it! The URL automatically changes from `/essays/hyprland-setup/` to `/guides/hyprland-setup/`
 
-### Example: Move a Note to Essays
+**Step 2: Optional cleanup**
+Update the frontmatter for consistency (optional but recommended):
+```yaml
+# You might want to adjust:
+description: "A Linux Frontier guide."  # Make it clear it's a guide
+summary: "Step-by-step instructions for..."  # Guide-appropriate summary
+```
 
-1. **Move the file:**
-   ```bash
-   mv content/notes/short-thought.md content/essays/
-   ```
+**Step 3: Rebuild**
+```bash
+rm -rf public/ && hugo
+```
 
-2. **Update frontmatter:**
-   ```yaml
-   type: "essay"  # Change from "note"
-   # Add series if appropriate:
-   series: ["Letters from the Collapse"]
-   # Expand the summary for essay context
-   summary: "A longer description..."
-   ```
+### Example: Move from Posts to Essays
+
+Many of your files are currently in `content/posts/essays/`. To move them properly:
+
+```bash
+# Move a single file
+mv content/posts/essays/the-collapse-of-non-monetary-value-systems.md content/essays/
+
+# Move all essays at once
+mv content/posts/essays/*.md content/essays/
+
+# Move all Linux guides to guides section
+mv content/posts/linux/*.md content/guides/
+```
+
+### Example: Convert a Note to an Essay
+
+```bash
+# Move the file
+mv content/notes/short-reflection.md content/essays/long-reflection.md
+
+# Edit the frontmatter to expand:
+nano content/essays/long-reflection.md
+```
+
+Update the frontmatter:
+```yaml
+# Add a series if appropriate
+series: ["Letters from the Collapse"]
+
+# Expand the summary
+summary: "A longer, more detailed description fitting for an essay..."
+
+# Consider adding a TOC
+showToc: true
+```
 
 ---
 
@@ -129,133 +196,183 @@ tocopen: false           # Start with TOC collapsed
 
 ### Adding Content to a Series
 
-In your post's frontmatter:
+Series membership is declared in frontmatter, regardless of directory:
+
 ```yaml
 series: ["The Linux Frontier"]  # Single series
-# OR
-series: ["The Linux Frontier", "The Technē Papers"]  # Multiple series
+
+# OR multiple series
+series: ["The Linux Frontier", "The Technē Papers"]
 ```
+
+An essay in `content/essays/` can belong to "The Linux Frontier" series just like a guide in `content/guides/` can.
 
 ### Removing from a Series
 
-Simply delete or comment out the series line:
+Delete or comment out the series line:
 ```yaml
-# series: ["The Linux Frontier"]  # Commented out
+# series: ["The Linux Frontier"]
 ```
 
-Or use an empty array:
+Or use empty array:
 ```yaml
 series: []
 ```
 
 ### Creating a New Series
 
-1. **Create the series directory:**
-   ```bash
-   mkdir -p content/series/my-new-series
-   ```
+**Step 1: Create directory and index**
+```bash
+mkdir -p content/series/my-new-series
+nano content/series/my-new-series/_index.md
+```
 
-2. **Create the series index:**
-   ```bash
-   nano content/series/my-new-series/_index.md
-   ```
+**Step 2: Add the series template**
+```yaml
+---
+title: "My New Series"
+subtitle: "A compelling tagline"
+description: "What this series explores"
+date: 2025-10-22
+draft: false
+weight: 10  # Lower numbers appear first in series list
+layout: "list"
+summary: "Brief description for series page"
+showToc: false
 
-3. **Add this template:**
-   ```yaml
-   ---
-   title: "My New Series"
-   subtitle: "A tagline for your series"
-   description: "What this series covers"
-   date: 2025-10-22
-   draft: false
-   weight: 10  # Controls ordering in series list
-   layout: "list"
-   summary: "Brief description"
-   showToc: false
-   ---
-   ## My New Series
+# Optional cover image for series page
+cover:
+  image: "/images/series-my-new-series.jpg"
+  alt: "Series cover image"
+  caption: "Caption for the series"
+---
 
-   Introduction and overview of what readers will find here.
-   ```
+## My New Series
 
-4. **Create an archetype (optional):**
-   ```bash
-   nano archetypes/my-new-series.md
-   ```
+Introduction and overview of what readers will find here.
 
-   ```yaml
-   ---
-   title: "{{ replace .Name "-" " " | title }}"
-   date: {{ .Date }}
-   draft: true
-   type: "essay"  # or guide, note, etc.
-   series: ["My New Series"]
-   tags: []
-   summary: ""
-   ---
-   ```
+### Featured Posts
+- Link to key posts
+- As they get written
+```
+
+**Step 3: Create archetype (optional)**
+```bash
+nano archetypes/my-new-series.md
+```
+
+```yaml
+---
+title: "{{ replace .Name "-" " " | title }}"
+date: {{ .Date }}
+draft: true
+series: ["My New Series"]
+categories: []
+tags: []
+summary: ""
+showToc: true
+tocopen: false
+---
+```
+
+**Step 4: Use it**
+```bash
+hugo new --kind my-new-series essays/first-post-in-series.md
+```
 
 ### Deleting a Series
 
-1. **Remove the series directory:**
-   ```bash
-   rm -rf content/series/my-old-series/
-   ```
+**Step 1: Remove the series directory**
+```bash
+rm -rf content/series/unwanted-series/
+```
 
-2. **Update all posts using that series:**
-   ```bash
-   # Find posts using the series
-   grep -r "My Old Series" content/
-   
-   # Edit each file to remove the series reference
-   ```
+**Step 2: Find and update all posts**
+```bash
+# Find all posts referencing this series
+grep -r "Unwanted Series" content/
 
-3. **Delete the archetype (if exists):**
-   ```bash
-   rm archetypes/my-old-series.md
-   ```
+# Edit each file to remove the series line
+# You can do this manually or with sed:
+find content/ -name "*.md" -exec sed -i '/Unwanted Series/d' {} +
+```
+
+**Step 3: Delete archetype if it exists**
+```bash
+rm archetypes/unwanted-series.md
+```
+
+**Step 4: Rebuild**
+```bash
+rm -rf public/ && hugo
+```
 
 ---
 
 ## 🏷️ Managing Categories and Tags
 
-### Modifying Categories/Tags
+Categories and tags work the same regardless of which directory your content is in.
 
-Edit the frontmatter in any post:
+### Modifying Categories/Tags in a Post
 
 ```yaml
-# Before:
+# Before
 categories: ["Philosophy"]
 tags: ["Stoicism", "Ethics"]
 
-# After:
-categories: ["Philosophy", "Politics"]  # Added Politics
-tags: ["Stoicism"]  # Removed Ethics
+# After (just edit the frontmatter)
+categories: ["Philosophy", "Politics"]
+tags: ["Stoicism", "Practice"]
 ```
 
 ### Finding All Uses of a Category/Tag
 
 ```bash
-# Find all posts with a specific category
+# Find all posts with "Linux" category
 grep -r "categories.*Linux" content/
 
-# Find all posts with a specific tag
+# Find all posts with "Hyprland" tag
 grep -r "tags.*Hyprland" content/
+
+# Count how many times a tag appears
+grep -r "tags.*Privacy" content/ | wc -l
 ```
 
 ### Renaming a Category/Tag Globally
 
 ```bash
-# Example: Rename "Privacy" to "Digital Privacy"
+# Rename "Privacy" to "Digital Privacy" everywhere
 find content/ -name "*.md" -type f -exec sed -i 's/"Privacy"/"Digital Privacy"/g' {} +
 
-# Always verify changes:
+# Verify changes before committing
 git diff
+
+# If it looks good
+git add -A
+git commit -m "Rename Privacy tag to Digital Privacy"
 ```
 
-### Unused Categories/Tags
+### Bulk Adding a Tag
 
-Hugo automatically generates pages for all used categories and tags. When you remove them from all posts, their pages disappear automatically on next build.
+```bash
+# Add "Featured" tag to all essays
+# (This is complex - usually better to do manually)
+
+# List what would be affected first
+ls content/essays/*.md
+```
+
+### Removing Unused Categories/Tags
+
+Hugo automatically generates pages for categories and tags that are actually used. When you remove a category/tag from all posts, its page disappears on the next build. No manual cleanup needed.
+
+**To find potentially unused tags:**
+```bash
+# See all tags used
+grep -r "^tags:" content/ | sed 's/.*tags: //' | tr ',' '\n' | sort | uniq
+
+# Compare with what you expect
+```
 
 ---
 
@@ -265,224 +382,531 @@ Hugo automatically generates pages for all used categories and tags. When you re
 
 ```bash
 # Delete the file
-rm content/essays/old-post.md
+rm content/essays/unwanted-post.md
 
-# Rebuild
+# Rebuild to update site
 rm -rf public/ && hugo
 ```
 
-### Delete All Drafts in a Section
+### Delete Multiple Posts
 
 ```bash
-# Preview what would be deleted
-grep -l "draft: true" content/essays/*.md
+# Delete all posts with "draft" in filename
+find content/ -name "*draft*.md" -delete
 
-# Delete them
-grep -l "draft: true" content/essays/*.md | xargs rm
+# Delete all drafts (be careful!)
+find content/ -name "*.md" -exec grep -l "draft: true" {} \; | xargs rm
+```
+
+### Preview What Would Be Deleted
+
+Always preview before bulk deleting:
+```bash
+# Show drafts that would be deleted
+find content/essays/ -name "*.md" -exec grep -l "draft: true" {} \;
+
+# Only after reviewing, actually delete them
+find content/essays/ -name "*.md" -exec grep -l "draft: true" {} \; | xargs rm
 ```
 
 ### Archive Instead of Delete
 
-Create an archive directory:
+Keep old content without publishing it:
+
 ```bash
+# Create archive directory if needed
 mkdir -p content/archive
+
+# Move post to archive
 mv content/essays/old-post.md content/archive/
+
+# Ensure it's marked as draft
+# Edit the file and set: draft: true
 ```
 
-Add to the post's frontmatter:
-```yaml
-draft: true  # Won't appear on site
+Archived posts with `draft: true` won't appear on the site but remain in version control.
+
+### Delete All Posts in a Category
+
+```bash
+# Find posts in a category
+grep -l "categories.*Deprecated" content/**/*.md
+
+# Review the list, then delete
+grep -l "categories.*Deprecated" content/**/*.md | xargs rm
 ```
 
 ---
 
-## 🔍 Common Tasks
+## 🔍 Common Maintenance Tasks
 
 ### Publishing a Draft
 
-Change in frontmatter:
+Edit the file:
 ```yaml
-draft: false
+draft: false  # Change from true
 ```
 
-### Unpublishing (Making a Draft Again)
-
-```yaml
-draft: true
+Save and rebuild:
+```bash
+hugo
 ```
 
-### Bulk Change Draft Status
+### Unpublishing (Make Draft Again)
+
+```yaml
+draft: true  # Change from false
+```
+
+### Bulk Publish All Drafts in a Section
 
 ```bash
-# Publish all drafts in essays/
+# Publish all essays
 find content/essays/ -name "*.md" -type f -exec sed -i 's/draft: true/draft: false/g' {} +
 
-# Make all essays drafts (to unpublish)
-find content/essays/ -name "*.md" -type f -exec sed -i 's/draft: false/draft: true/g' {} +
+# Verify changes
+git diff content/essays/
+
+# Rebuild
+hugo
 ```
 
-### Change Date Format
+### Bulk Unpublish (Make Everything Drafts)
 
-Hugo uses ISO 8601. Valid formats:
-```yaml
-date: 2025-10-22
-date: 2025-10-22T14:30:00+11:00
-```
-
-### Update Multiple Posts at Once
-
-Using `sed` for batch edits:
 ```bash
-# Add a tag to all Linux guides
-find content/guides/ -name "*.md" -type f -exec sed -i '/tags:/s/\]/", "Advanced"\]/' {} +
+# Make all guides drafts
+find content/guides/ -name "*.md" -type f -exec sed -i 's/draft: false/draft: true/g' {} +
+```
 
-# Add series to all essays
-find content/essays/ -name "*.md" -type f -exec sed -i '4a series: ["The Modernity Cycle"]' {} +
+### Update Dates
+
+Hugo uses ISO 8601 format:
+```yaml
+date: 2025-10-22                    # Date only
+date: 2025-10-22T14:30:00+11:00    # Full timestamp with timezone
+```
+
+**Bulk update dates:**
+```bash
+# Set all essays to today's date (be careful!)
+TODAY=$(date +%Y-%m-%d)
+find content/essays/ -name "*.md" -exec sed -i "s/^date: .*/date: $TODAY/" {} +
+```
+
+### Add Series to Multiple Posts
+
+```bash
+# Add "The Modernity Cycle" series to all essays (complex - usually do manually)
+# Safer to use a text editor with find/replace or do it manually
+```
+
+### Bulk Add a Tag
+
+```bash
+# This is tricky with sed - usually better to do manually or with a script
+# Example: Add "featured" tag to specific posts
+
+# For posts that already have tags:
+# Edit manually or use a proper script
+```
+
+---
+
+## 📊 Content Inventory Commands
+
+### Count Posts by Section
+
+```bash
+echo "Essays: $(find content/essays/ -name "*.md" | wc -l)"
+echo "Guides: $(find content/guides/ -name "*.md" | wc -l)"
+echo "Notes: $(find content/notes/ -name "*.md" | wc -l)"
+echo "Projects: $(find content/projects/ -name "*.md" | wc -l)"
+```
+
+### List All Series Used
+
+```bash
+grep -rh "^series:" content/ | sort | uniq
+```
+
+### List All Categories
+
+```bash
+grep -rh "^categories:" content/ | sed 's/categories: //' | tr -d '[]"' | tr ',' '\n' | sort | uniq
+```
+
+### List All Tags
+
+```bash
+grep -rh "^tags:" content/ | sed 's/tags: //' | tr -d '[]"' | tr ',' '\n' | sort | uniq
+```
+
+### Find Posts Without Series
+
+```bash
+# Posts that don't have a series line
+find content/{essays,guides,notes}/ -name "*.md" -exec grep -L "^series:" {} \;
+```
+
+### Find Drafts
+
+```bash
+grep -r "draft: true" content/ | cut -d: -f1
+```
+
+### Find Posts Published in Future
+
+```bash
+# Posts dated after today
+find content/ -name "*.md" -exec grep -l "date: $(date +%Y-%m-%d --date='tomorrow')" {} \;
 ```
 
 ---
 
 ## 🚀 Development Workflow
 
-### Start Dev Server
+### Start Development Server
+
 ```bash
 ./dev.sh
 # OR
 hugo server -D --bind 0.0.0.0 --disableFastRender
 ```
 
+**What the flags mean:**
+- `-D` = Show draft posts
+- `--bind 0.0.0.0` = Allow access from network (not just localhost)
+- `--disableFastRender` = Full rebuild on changes (slower but more reliable)
+
 **Access at:** `http://localhost:1313`
 
 ### Clean Build
+
+Remove generated files and rebuild:
 ```bash
 rm -rf public/ resources/ && hugo
 ```
 
 ### Build for Production
+
 ```bash
 hugo --minify
 ```
 
-### Check for Errors
+This creates optimized files in `public/` directory.
+
+### Check for Build Errors
+
 ```bash
 hugo --verbose
 ```
 
+Shows detailed output including warnings.
+
 ---
 
-## 🔧 Site Configuration
+## 🔧 Site Configuration (hugo.toml)
 
 ### Modify Site Title/Description
 
-Edit `hugo.toml`:
 ```toml
 title = 'KDOS'
 [params]
-  description = "Your new description"
+  description = "Your site description"
+  author = "Your Name"
 ```
 
-### Add/Remove Menu Items
+### Add/Remove Main Menu Items
 
-Edit `hugo.toml`:
 ```toml
 [menu]
   [[menu.main]]
-    name = "Essays"
-    url = "/essays/"
-    weight = 1  # Lower number = appears first
+    name = "Essays"      # Text shown in menu
+    url = "/essays/"     # Link destination
+    weight = 1           # Order (lower = first)
+
+  [[menu.main]]
+    name = "Guides"
+    url = "/guides/"
+    weight = 2
+```
+
+### Add Footer Menu Items
+
+```toml
+[[menu.footer]]
+  name = "Series"
+  url = "/series/"
+  weight = 1
 ```
 
 ### Change Theme Settings
 
-In `hugo.toml` under `[params]`:
 ```toml
-ShowReadingTime = true
-ShowWordCount = false
-defaultTheme = "dark"  # Options: light, dark, auto
+[params]
+  defaultTheme = "auto"        # Options: light, dark, auto
+  ShowReadingTime = true
+  ShowShareButtons = false
+  ShowPostNavLinks = true
+  ShowBreadCrumbs = true
+  ShowCodeCopyButtons = true
+  ShowWordCount = false
+  ShowRssButtonInSectionTermList = true
+  
+  showtoc = true              # Show TOC by default
+  tocopen = false             # Start collapsed
+```
+
+### Configure Pagination
+
+```toml
+[pagination]
+  pagerSize = 12  # Posts per page
 ```
 
 ---
 
-## 📊 Content Organization Best Practices
+## 🎨 Best Practices
 
-### Type → Directory Mapping
-- **Essays** → `content/essays/` (type: "essay")
-- **Guides** → `content/guides/` (type: "guide")  
-- **Notes** → `content/notes/` (type: "note")
-- **Projects** → `content/projects/` (type: "project")
+### Content Organization
 
-### Series Usage
-Use series for multi-part narratives or thematic collections that span different content types.
+**Directory = Content Type:**
+- Essays → Deep analysis, philosophy → `content/essays/`
+- Guides → How-tos, tutorials → `content/guides/`
+- Notes → Quick thoughts → `content/notes/`
+- Projects → Case studies → `content/projects/`
 
-### Categories vs Tags
-- **Categories**: Broad (3-5 max per post) — Philosophy, Linux, Craft
-- **Tags**: Specific (5-10 max per post) — Stoicism, Arch, Hyprland, Privacy
+**Series = Thematic Collections:**
+Use series to group related content across different types. An essay and a guide can both be in "The Linux Frontier" series.
+
+**Categories = Broad Topics (3-5 max per post):**
+- Philosophy, Linux, Craft, Politics, etc.
+
+**Tags = Specific Keywords (5-10 max per post):**
+- Stoicism, Arch, Hyprland, Privacy, Woodworking, etc.
 
 ### File Naming
-- Use lowercase with hyphens: `my-post-title.md`
-- Avoid special characters: `~/!@#$%`
-- Date prefixes optional: `2025-10-22-my-post.md`
+
+```bash
+# Good
+my-post-title.md
+2025-10-22-my-post.md
+linux-privacy-guide.md
+
+# Avoid
+My Post Title.md          # Spaces
+my_post_title.md          # Underscores work but hyphens are more common
+my-post!.md               # Special characters
+```
+
+### Frontmatter Consistency
+
+Keep frontmatter in this order for consistency:
+```yaml
+---
+title: "..."
+subtitle: "..."           # If used
+description: "..."        # If used
+date: 2025-10-22
+draft: false
+
+series: ["..."]           # If applicable
+categories: ["...", "..."]
+tags: ["...", "...", "..."]
+
+summary: "..."
+showToc: true
+tocopen: false
+
+# cover:                  # If used
+#   image: "..."
+#   alt: "..."
+#   caption: "..."
+---
+```
 
 ---
 
 ## 🛠️ Troubleshooting
 
 ### Post Not Showing Up
-1. Check `draft: true` in frontmatter
-2. Verify date isn't in the future
-3. Rebuild: `rm -rf public/ && hugo`
 
-### Series Not Linking
-1. Ensure series name matches exactly (case-sensitive)
-2. Check `content/series/[series-name]/_index.md` exists
-3. Rebuild site
+**Check these in order:**
 
-### Changes Not Appearing
-1. Stop and restart dev server
-2. Clear browser cache
-3. Use `--disableFastRender` flag
+1. **Is it a draft?**
+   ```bash
+   grep "draft:" content/path/to/post.md
+   # Should be: draft: false
+   ```
 
-### Broken Internal Links
-Use relative paths:
+2. **Is the date in the future?**
+   ```bash
+   grep "date:" content/path/to/post.md
+   # Compare to today's date
+   ```
+
+3. **Is it in the right directory?**
+   ```bash
+   # Should be in content/essays/, content/guides/, etc.
+   # Not in content/archive/ or similar
+   ```
+
+4. **Rebuild the site:**
+   ```bash
+   rm -rf public/ && hugo
+   ```
+
+### Series Not Linking Properly
+
+1. **Check series name matches exactly (case-sensitive):**
+   ```bash
+   # In post:
+   series: ["The Linux Frontier"]
+   
+   # Series directory must be:
+   content/series/linux-frontier/
+   ```
+
+2. **Ensure _index.md exists:**
+   ```bash
+   ls content/series/linux-frontier/_index.md
+   ```
+
+3. **Rebuild:**
+   ```bash
+   rm -rf public/ && hugo
+   ```
+
+### Changes Not Appearing in Browser
+
+1. **Hard refresh:** Ctrl+Shift+R (Cmd+Shift+R on Mac)
+2. **Restart Hugo server:** Stop (Ctrl+C) and restart
+3. **Use --disableFastRender:**
+   ```bash
+   hugo server -D --disableFastRender
+   ```
+
+### Broken Links
+
+**Always use absolute paths from site root:**
 ```markdown
 [Link to about](/about/)
 [Link to essay](/essays/my-essay/)
+[Link to series](/series/modernity-cycle/)
+```
+
+**Never use:**
+```markdown
+[Bad](../about/)              # Relative paths
+[Bad](about/)                 # Missing leading slash
+[Bad](/about/index.html)      # Including filenames
+```
+
+### Build Errors
+
+```bash
+# See detailed errors
+hugo --verbose
+
+# Common issues:
+# - Invalid YAML in frontmatter (check indentation)
+# - Missing closing quotes
+# - Invalid date format
 ```
 
 ---
 
 ## 📦 Deployment
 
-Site auto-deploys to Cloudflare Pages on push to `main` branch.
+### Automatic Deployment
 
-**Manual deploy:**
+Site auto-deploys to Cloudflare Pages when you push to `main` branch:
+
 ```bash
+git add -A
+git commit -m "Add new essay on X"
+git push origin main
+```
+
+Cloudflare automatically runs `hugo` and publishes to production.
+
+### Manual Deployment
+
+```bash
+# Build production site
 hugo --minify
-# Upload public/ directory to your host
+
+# The public/ directory contains your site
+# Upload it to your hosting provider
 ```
 
 ---
 
-## 🔗 Quick Reference
+## 🔗 Quick Reference Card
 
-| Command | Purpose |
-|---------|---------|
-| `hugo new --kind essay essays/new.md` | Create essay |
-| `hugo new --kind guide guides/new.md` | Create guide |
-| `hugo server -D` | Preview with drafts |
-| `hugo` | Build site |
-| `rm -rf public/ && hugo` | Clean build |
-| `grep -r "pattern" content/` | Search content |
-| `find content/ -name "*.md" \| wc -l` | Count posts |
+### Creating Content
+```bash
+hugo new essays/title.md        # New essay
+hugo new guides/title.md        # New guide  
+hugo new notes/title.md         # New note
+hugo server -D                  # Preview with drafts
+```
+
+### Moving Content
+```bash
+mv content/essays/post.md content/guides/    # Essay → Guide
+mv content/notes/post.md content/essays/     # Note → Essay
+```
+
+### Managing Series
+```yaml
+series: ["The Linux Frontier"]              # Add to frontmatter
+series: []                                   # Remove from frontmatter
+```
+
+### Common Searches
+```bash
+grep -r "draft: true" content/              # Find drafts
+grep -r "series.*Linux" content/            # Find series posts
+find content/essays/ -name "*.md" | wc -l   # Count essays
+```
+
+### Building
+```bash
+hugo                           # Build site
+rm -rf public/ && hugo        # Clean build
+hugo --minify                 # Production build
+```
 
 ---
 
 ## 📚 Further Reading
 
 - [Hugo Documentation](https://gohugo.io/documentation/)
-- [PaperMod Theme Docs](https://github.com/adityatelange/hugo-PaperMod/wiki)
-- [Hugo Frontmatter Variables](https://gohugo.io/content-management/front-matter/)
+- [PaperMod Theme](https://github.com/adityatelange/hugo-PaperMod/wiki)
+- [Hugo Content Organization](https://gohugo.io/content-management/organization/)
+- [Hugo Frontmatter](https://gohugo.io/content-management/front-matter/)
 
 ---
 
-*Last updated: October 2025*
+## 🤔 Common Questions
+
+**Q: Why don't I need a `type:` field in frontmatter?**  
+A: Hugo determines the content type from the directory location. `content/essays/` → essays section.
+
+**Q: Can a guide be in an essay series?**  
+A: Yes! Series membership is independent of directory location. A guide in `content/guides/` can belong to "The Modernity Cycle" series.
+
+**Q: What happens to my old posts in `content/posts/`?**  
+A: They still work, but should be migrated to `content/essays/`, `content/guides/`, etc. for better organization.
+
+**Q: How do I change a post's URL?**  
+A: Move it to a different directory or add `url: /custom/path/` to frontmatter.
+
+**Q: Can I have subdirectories?**  
+A: Yes! `content/guides/linux/hyprland.md` → `/guides/linux/hyprland/`
+
+---
+
+*Last updated: October 2025*  
+*This guide reflects the actual structure of your Hugo site.*
