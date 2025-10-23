@@ -8,7 +8,7 @@ categories: ["Civilisation", "Philosophy", "Economics"]
 summary: "Money was only a token of trust; when trust erodes, tokens lose meaning. The Stoics taught that wealth is indifferent, virtue essential. Rome collapsed not for lack of currency but for loss of civic virtue — citizens ceased to see the republic as an extension of themselves. The analogy is uncomfortably close. When Australians treat their country as a property portfolio rather than a common inheritance, they re-enact the same decline."
 
 cover:
-  image: "/Peter_Paul_Rubens_-_Cimon_and_Pero_c1630.jpg"  # Path from static/ directory
+  image: "/karlsbad.jpg"  # Path from static/ directory
   alt: "Cimon and Pero by Peter Paul Rubens c.1630"
   caption: "Cimon and Pero by Peter Paul Rubens c.1630"
   relative: false  # Set true if image is in same folder as post
