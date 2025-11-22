@@ -1,7 +1,7 @@
 +++
 date = '2025-11-22T20:35:08+11:00'
-draft = true
-title = 'Flirtingteasing'
+draft = false
+title = 'The Flirting Escalation Ladder'
 +++
 
 
