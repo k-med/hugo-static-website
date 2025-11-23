@@ -12,7 +12,7 @@ Modern men’s hygiene is bloated with expensive “natural” products, boutiqu
 The truth: **you can meet every hygiene need with a handful of cheap, powerful, natural ingredients** found anywhere.
 
 The **real value**, however, isn’t just the money saved.
-It’s **sovereignty**, **simplicity**, and **removing industrial synthetics from your body**.
+It’s **sovereignty**, **simplicity**, and **natural ingredients**.
 
 Below is the complete minimalist system, plus a rough breakdown of how much money it saves you.
 
