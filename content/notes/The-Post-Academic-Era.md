@@ -34,6 +34,8 @@ Self-learning is currently at a local maximum; it lacks social pressure and veri
 
 
 [Image of AI augmented apprenticeship model diagram]
+![The Neo Guild Structure](/static/images/notes/Post-Academic-Era/neo-guild-diagram.jpg)
+
 
 
 * **The Structure:** Small, localized pods (10–15 people) physically located in "hacker houses" or co-living spaces.
