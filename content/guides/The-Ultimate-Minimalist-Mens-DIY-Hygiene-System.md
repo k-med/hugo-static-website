@@ -1,10 +1,10 @@
 +++
 date = '2025-11-23T18:44:00+11:00'
 draft = false
-title = 'The Ultimate Minimalist Mens DIY Hygiene System'
+title = 'The Simple Man's Grooming Guide'
 +++
 
-# **The Ultimate Minimalist Men’s DIY Hygiene System**
+# **The Simple Man's Grooming Guide**
 
 *A no-BS guide to natural, cheap, road-ready grooming — with massive savings and even bigger benefits.*
 
