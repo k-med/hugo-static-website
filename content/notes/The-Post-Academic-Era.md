@@ -34,7 +34,7 @@ Self-learning is currently at a local maximum; it lacks social pressure and veri
 
 
 [Image of AI augmented apprenticeship model diagram]
-![The Neo Guild Structure](/static/images/notes/Post-Academic-Era/neo-guild-diagram.jpg)
+![The Neo Guild Structure](/images/notes/Post-Academic-Era/neo-guild-diagram.jpg)
 
 
 
